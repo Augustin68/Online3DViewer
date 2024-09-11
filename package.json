@@ -34,7 +34,8 @@
 		"build/engine/o3dv.module.js",
 		"build/engine/o3dv.module.d.ts",
 		"source/engine/*",
-		"website/assets/envmaps/*"
+		"website/assets/envmaps/*",
+		"libs/*"
 	],
 	"scripts": {
 		"start": "npm run build_website_dev && http-server",
