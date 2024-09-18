@@ -1029,7 +1029,8 @@ export class Navigation {
         boundingSphereRadius: any;
         maxZoomEnabled: boolean;
         maxZoomRatio: number;
-        isPanEnabled: boolean;
+        panFromRightClick: boolean;
+        panFromShiftLeftClick: boolean;
     };
     SetMouseClickHandler(onMouseClick: any): void;
     SetMouseMoveHandler(onMouseMove: any): void;
@@ -1071,10 +1072,15 @@ export class Navigation {
      */
     SetBoundingSphereRadius(radius: number): void;
     /**
-     * Enable or disable the Pan navigation
-     * @param {boolean} isEnabled
+     * Enable or disable the Pan navigation when right-clicking and dragging.
+     * @param {boolean} enabled
      */
-    SetIsPanEnabled(isEnabled: boolean): void;
+    SetPanFromRightClickEnabled(enabled: boolean): void;
+    /**
+     * Enable or disable the Pan navigation when left-clicking dragging while holding shift.
+     * @param {boolean} enabled
+     */
+    SetPanFromShiftLeftClickEnabled(enabled: boolean): void;
 }
 /**
  * Camera navigation mode.
