@@ -1025,6 +1025,12 @@ export class Navigation {
     onMouseClick: any;
     onMouseMove: any;
     onContext: any;
+    settings: {
+        boundingSphereRadius: any;
+        maxZoomEnabled: boolean;
+        maxZoomRatio: number;
+        isPanEnabled: boolean;
+    };
     SetMouseClickHandler(onMouseClick: any): void;
     SetMouseMoveHandler(onMouseMove: any): void;
     SetContextMenuHandler(onContext: any): void;
@@ -1049,6 +1055,26 @@ export class Navigation {
     Update(): void;
     Click(button: any, mouseCoords: any): void;
     Context(clientX: any, clientY: any): void;
+    /**
+     * Enable or disable the max zoom distance for the camera.
+     * @param {boolean} isEnabled
+     */
+    SetMaxZoomCameraEnabled(isEnabled: boolean): void;
+    /**
+     * Set the max zoom distance ratio compared to the size of the model.
+     * @param {number} ratio
+     */
+    SetMaxZoomCameraRatio(ratio: number): void;
+    /**
+     * Set the model radius to be able to compute zoom ratio
+     * @param {number} radius
+     */
+    SetBoundingSphereRadius(radius: number): void;
+    /**
+     * Enable or disable the Pan navigation
+     * @param {boolean} isEnabled
+     */
+    SetIsPanEnabled(isEnabled: boolean): void;
 }
 /**
  * Camera navigation mode.

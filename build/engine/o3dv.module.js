@@ -13831,6 +13831,13 @@ class Navigation
 		this.onMouseMove = null;
 		this.onContext = null;
 
+		this.settings = {
+			boundingSphereRadius: null,
+			maxZoomEnabled: false,
+			maxZoomRatio: 10,
+			isPanEnabled: true,
+		};
+
 		if (this.canvas.addEventListener) {
 			this.canvas.addEventListener ('mousedown', this.OnMouseDown.bind (this));
 			this.canvas.addEventListener ('wheel', this.OnMouseWheel.bind (this));
@@ -14119,6 +14126,10 @@ class Navigation
 
 	Pan (moveX, moveY)
 	{
+		if (!this.settings.isPanEnabled) {
+			return;
+		}
+
 		let viewDirection = SubCoord3D (this.camera.center, this.camera.eye).Normalize ();
 		let horizontalDirection = CrossVector3D (viewDirection, this.camera.up).Normalize ();
 		let verticalDirection = CrossVector3D (horizontalDirection, viewDirection).Normalize ();
@@ -14134,6 +14145,15 @@ class Navigation
 	{
 		let direction = SubCoord3D (this.camera.center, this.camera.eye);
 		let distance = direction.Length ();
+
+		if (this.settings.maxZoomEnabled && this.settings.boundingSphereRadius !== null && distance > this.settings.boundingSphereRadius * this.settings.maxZoomRatio && ratio < 0) {
+			return;
+		}
+
+		if(distance < 0.01 && ratio > 0) {
+			return;
+		}
+
 		let move = distance * ratio;
 		this.camera.eye.Offset (direction, move);
 	}
@@ -14160,6 +14180,38 @@ class Navigation
 			let localCoords = GetDomElementClientCoordinates (this.canvas, clientX, clientY);
 			this.onContext (globalCoords, localCoords);
 		}
+	}
+
+	/**
+	 * Enable or disable the max zoom distance for the camera.
+	 * @param {boolean} isEnabled
+	 */
+	SetMaxZoomCameraEnabled (isEnabled) {
+		this.settings.maxZoomEnabled = isEnabled;
+	}
+
+	/**
+	 * Set the max zoom distance ratio compared to the size of the model.
+	 * @param {number} ratio
+	 */
+	SetMaxZoomCameraRatio (ratio) {
+		this.settings.maxZoomRatio = ratio;
+	}
+
+	/**
+	 * Set the model radius to be able to compute zoom ratio
+	 * @param {number} radius
+	 */
+	SetBoundingSphereRadius (radius) {
+		this.settings.boundingSphereRadius = radius;
+	}
+
+	/**
+	 * Enable or disable the Pan navigation
+	 * @param {boolean} isEnabled
+	 */
+	SetIsPanEnabled (isEnabled) {
+		this.settings.isPanEnabled = isEnabled;
 	}
 }
 
