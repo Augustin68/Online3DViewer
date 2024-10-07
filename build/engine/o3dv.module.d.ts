@@ -1280,28 +1280,28 @@ export function QuaternionFromAxisAngle(axis: any, angle: any): Quaternion;
 export function QuaternionFromXYZ(x: any, y: any, z: any, mode: any): Quaternion;
 export function QuaternionIsEqual(a: any, b: any): boolean;
 /**
- * RGBA color object. Components are integers in the range of 0..255.
+ * RGBA color object. Components are numbers in the range of 0..255.
  */
 export class RGBAColor {
     /**
-     * @param {integer} r Red component.
-     * @param {integer} g Green component.
-     * @param {integer} b Blue component.
-     * @param {integer} a Alpha component.
+     * @param {number} r Red component.
+     * @param {number} g Green component.
+     * @param {number} b Blue component.
+     * @param {number} a Alpha component.
      */
-    constructor(r: integer, g: integer, b: integer, a: integer);
-    r: integer;
-    g: integer;
-    b: integer;
-    a: integer;
+    constructor(r: number, g: number, b: number, a: number);
+    r: number;
+    g: number;
+    b: number;
+    a: number;
     /**
      * Sets the value of all components.
-     * @param {integer} r Red component.
-     * @param {integer} g Green component.
-     * @param {integer} b Blue component.
-     * @param {integer} a Alpha component.
+     * @param {number} r Red component.
+     * @param {number} g Green component.
+     * @param {number} b Blue component.
+     * @param {number} a Alpha component.
      */
-    Set(r: integer, g: integer, b: integer, a: integer): void;
+    Set(r: number, g: number, b: number, a: number): void;
     /**
      * Creates a clone of the object.
      * @returns {RGBAColor}
@@ -1310,25 +1310,25 @@ export class RGBAColor {
 }
 export function RGBAColorToHexString(color: any): string;
 /**
- * RGB color object. Components are integers in the range of 0..255.
+ * RGB color object. Components are numbers in the range of 0..255.
  */
 export class RGBColor {
     /**
-     * @param {integer} r Red component.
-     * @param {integer} g Green component.
-     * @param {integer} b Blue component.
+     * @param {number} r Red component.
+     * @param {number} g Green component.
+     * @param {number} b Blue component.
      */
-    constructor(r: integer, g: integer, b: integer);
-    r: integer;
-    g: integer;
-    b: integer;
+    constructor(r: number, g: number, b: number);
+    r: number;
+    g: number;
+    b: number;
     /**
      * Sets the value of all components.
-     * @param {integer} r Red component.
-     * @param {integer} g Green component.
-     * @param {integer} b Blue component.
+     * @param {number} r Red component.
+     * @param {number} g Green component.
+     * @param {number} b Blue component.
      */
-    Set(r: integer, g: integer, b: integer): void;
+    Set(r: number, g: number, b: number): void;
     /**
      * Creates a clone of the object.
      * @returns {RGBColor}

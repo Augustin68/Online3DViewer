@@ -305,14 +305,14 @@ function DotVector2D (a, b)
 }
 
 /**
- * RGB color object. Components are integers in the range of 0..255.
+ * RGB color object. Components are numbers in the range of 0..255.
  */
 class RGBColor
 {
     /**
-     * @param {integer} r Red component.
-     * @param {integer} g Green component.
-     * @param {integer} b Blue component.
+     * @param {number} r Red component.
+     * @param {number} g Green component.
+     * @param {number} b Blue component.
      */
     constructor (r, g, b)
     {
@@ -323,9 +323,9 @@ class RGBColor
 
     /**
      * Sets the value of all components.
-     * @param {integer} r Red component.
-     * @param {integer} g Green component.
-     * @param {integer} b Blue component.
+     * @param {number} r Red component.
+     * @param {number} g Green component.
+     * @param {number} b Blue component.
      */
     Set (r, g, b)
     {
@@ -345,15 +345,15 @@ class RGBColor
 }
 
 /**
- * RGBA color object. Components are integers in the range of 0..255.
+ * RGBA color object. Components are numbers in the range of 0..255.
  */
 class RGBAColor
 {
     /**
-     * @param {integer} r Red component.
-     * @param {integer} g Green component.
-     * @param {integer} b Blue component.
-     * @param {integer} a Alpha component.
+     * @param {number} r Red component.
+     * @param {number} g Green component.
+     * @param {number} b Blue component.
+     * @param {number} a Alpha component.
      */
     constructor (r, g, b, a)
     {
@@ -365,10 +365,10 @@ class RGBAColor
 
     /**
      * Sets the value of all components.
-     * @param {integer} r Red component.
-     * @param {integer} g Green component.
-     * @param {integer} b Blue component.
-     * @param {integer} a Alpha component.
+     * @param {number} r Red component.
+     * @param {number} g Green component.
+     * @param {number} b Blue component.
+     * @param {number} a Alpha component.
      */
     Set (r, g, b, a)
     {
